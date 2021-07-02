@@ -1,0 +1,80 @@
+1.新风机启动
+FAR=0 	--开启风机
+FAV=1 	--打开风阀
+DHV=1 	--打开水阀
+sleep(1min) 	--等待一分钟
+if FAR==1 then 	--判断风机是否未启动
+	if FAE==1 then 	--判断是否为风机故障
+		print(风机故障)
+	else
+		sleep(1min）
+		if FAR==1 then --等一分钟再判断风机是否未启动
+			print(未知故障)
+		end
+	end
+else	--风机启动成功
+	do
+end
+
+2.冷源主机启动
+DWK=1		--开启新风主机
+if HW_ID==1 then 	--判断是否有直膨式主机
+	do 开启
+else	
+	--发出请求共用主机信号
+	if HW_ID==10 then	--主板硬件ID判断
+		MC1K=1		--共用主机MC1
+	elseif HW__ID==01 then
+		MC2K=1		--共用主机MC2
+	else
+		print(主机不共用或主板硬件ID错误)
+	end
+end
+
+--冷源主机关闭
+if HW_ID==1 then 	--判断是否有直膨式主机
+	do 关闭
+else	
+	--发出请求共用主机信号
+	if HW_ID==10 then	--主板硬件ID判断
+		if MC1K==1 then	--共用主机MC1
+			MC1K==1
+	elseif HW__ID==01 then
+		if MC2K==1 then	--共用主机MC2
+			MC2K==1
+	else
+		print(主机不共用或主板硬件ID错误)
+	end
+end
+
+3.除湿逻辑
+--风机正常开启后
+if RAH1>RAHS1 then
+	开启冷源主机
+end
+if RAH1-RAHS1>H9 then
+	FAV=0
+elseif RAH1-RAHS1<H8 then
+	FAV=1
+
+
+
+4.盘管保护
+while (1) do
+	if DHT1<DHST1 then
+		DWK=0
+	end
+	sleep(1min)
+end
+
+
+
+
+
+
+
+
+
+
+
+	
