@@ -1,0 +1,5 @@
+﻿  crc16.c
+C:\Users\皮卡丘\Desktop\crc16\crc16.c(9,23): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\皮卡丘\Desktop\crc16\crc16.c(32,26): warning C4047: “函数”:“unsigned char *”与“unsigned char (*)[5]”的间接级别不同
+C:\Users\皮卡丘\Desktop\crc16\crc16.c(32,21): warning C4024: “CRC16”: 形参和实参 1 的类型不同
+  crc16.vcxproj -> C:\Users\皮卡丘\Desktop\crc16\Debug\crc16.exe
